@@ -94,14 +94,28 @@
       </li>
     </ul>
     <div class="footer">
-      Todo: <span id="todo-count">1</span> •
-      Done: <span id="completed-count">0</span> •
+      Todo: <span id="todo-count">1</span>
+      Done: <span id="completed-count">0</span>
       Total: <span id="total-count">1</span>
     </div>
   </div>
 
   <script>
-    
+  function updateCounters(){
+    var todoCounter = document.getElementById('todo-count');
+    var totalTodos = document.getElementsByClassName("todo").length;
+    todoCounter.innerHTML = totalTodos;
+
+    var completedCount = document.getElementById("completed-count");
+    var completedTodos = document.getElementsByClassName("completed").length
+    completedCount.innerHTML = completedTodos
+
+    var todoCount = document.getElementById("todo-count");
+    var uncompletedTodos = totalTodos - completedTodos;
+    todoCount.innerHTML = uncompletedTodos;
+  }
+
+  updateCounters();
   </script>
 </body>
 </html>
